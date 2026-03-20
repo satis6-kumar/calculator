@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #cefc7f;
+      font-family: Arial;
+    }
+
+    .calculator {
+      background: #323330;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #display {
+        background-color: darkgray;
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: right;
+      padding: 5px;
+      border-radius: 20px;
+      padding-right: 1px;
+    }
+
+    button {
+      width: 60px;
+      height: 50px;
+      margin: 5px;
+      font-size: 18px;
+      border: none;
+      border-radius: 100px;
+      
+    }
+    button:active{
+       transform: scale(1.00);
+       background-color: khaki;
+
+    }
+
+    .btn {
+      background: #f455da;
+      color: white;
+    }
+
+    .equal {
+      background: rgb(239, 7, 7);
+      color: white;
+    }
+
+    .clear {
+      background: rgb(9, 246, 88);
+      color: white;
+    }
+   .btnn{
+        background-color: rgb(128, 255, 225);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="calculator">
+  <input type="text" id="display" disabled>
+
+  <div>
+    <button class="btnn" onclick="addValue('1')">1</button>
+    <button class="btnn" onclick="addValue('2')">2</button>
+    <button class="btnn" onclick="addValue('3')">3</button>
+    <button class="btn" onclick="addValue('/')">/</button>
+  </div>
+
+  <div>
+    <button class="btnn" onclick="addValue('4')">4</button>
+    <button class="btnn" onclick="addValue('5')">5</button>
+    <button class="btnn" onclick="addValue('6')">6</button>
+    <button class="btn" onclick="addValue('*')">X</button>
+  </div>
+
+  <div>
+    <button class="btnn" onclick="addValue('7')">7</button>
+    <button class="btnn" onclick="addValue('8')">8</button>
+    <button class="btnn" onclick="addValue('9')">9</button>
+    <button class="btn" onclick="addValue('-')">-</button>
+  </div>
+
+  <div>
+    <button class="btnn" onclick="addValue('0')">0</button>
+    <button class="btnn" onclick="addValue('.')">.</button>
+    <button class="equal" onclick="calculate()">=</button>
+    <button class="btn" onclick="addValue('+')">+</button>
+  </div>
+
+  <div>
+    <button class="clear" onclick="clearDisplay()">C</button>
+  </div>
+</div>
+
+<script>
+  function addValue(val) {
+    document.getElementById("display").value += val;
+  }
+
+  function calculate() {
+    try {
+      let result = eval(document.getElementById("display").value);
+      document.getElementById("display").value = result;
+    } catch {
+      alert("Invalid Expression");
+    }
+  }
+
+  function clearDisplay() {
+    document.getElementById("display").value = "";
+  }
+</script>
+
+</body>
+</html>
+
